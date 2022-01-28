@@ -1,1 +1,1 @@
-# spechtlite-config
+# config
