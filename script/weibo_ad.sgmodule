@@ -1,0 +1,17 @@
+#!url=https://raw.githubusercontent.com/xj90512/config/master/script/weibo_ad.sgmodule
+#!name=微博去广告
+#!desc=最后更新时间 2022-05-30 12:35:38
+#!author=yichahucha
+#!repo=https://github.com/yichahucha/surge
+#!rewrite=0
+#!script=2
+#!force_http_engine_hosts=0
+#!mitm=3
+
+
+[Script]
+微博去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
+微博去广告 = type=http-response,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js,pattern=^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/(photos/pic_recommend_status|live/media_homelist)|video/tiny_stream_video_list|photo/info|remind/unread_count) 
+
+[MITM]
+hostname = api.weibo.cn, mapi.weibo.com, *.uve.weibo.com
