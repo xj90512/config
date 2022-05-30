@@ -3,12 +3,6 @@
 #!desc=最后更新时间 2022-05-30 12:35:38
 #!author=blackmatrix7
 #!repo=https://github.com/blackmatrix7/ios_rule_script/blob/master/script/bilibili/README.md
-#!system=ios
-#!rule=4
-#!rewrite=6
-#!script=7
-#!force_http_engine_hosts=0
-#!mitm=4
 
 [Rule]
 DOMAIN-SUFFIX,cm.bilibili.com,REJECT
