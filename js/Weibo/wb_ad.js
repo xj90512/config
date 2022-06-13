@@ -1,5 +1,5 @@
 /*
-README：https://github.com/yichahucha/surge/tree/master
+README：https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js
  */
 
 const path1 = "/groups/timeline";

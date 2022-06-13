@@ -1,3 +1,7 @@
+/*
+README:https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_cardlist.js
+*/
+
 let body = JSON.parse($response.body);
 // 过滤每个 card 是否是广告
 if (body['cards'])  // 包括 body['cards'] 可能为 null 的情况

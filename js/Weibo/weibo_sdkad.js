@@ -1,3 +1,7 @@
+/*
+https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_sdkad.js
+*/
+
 let body = JSON.parse($response.body.match(/({.*})OK/)[1]);  // $response.body： {json..,}OK
 for (let item of body['ads']) {
     // console.log(`${item['begintime']} -- ${item['endtime']}`);

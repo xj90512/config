@@ -1,3 +1,8 @@
+/*
+README：https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_statuses.js
+ */
+
+
 let body = JSON.parse($response.body);
 // 过滤每条信息
 // promotion(推广) <=> mblogtypename: '广告'
