@@ -10,7 +10,18 @@ http:
       type: response
       require-body: true
       timeout: 10
-      
+  rewrite:
+    - ^https?://spclient.wg.spotify.com/ad-logic/* - reject-img
+    - ^https?://spclient.wg.spotify.com/ads/* - reject-img
+    - ^https?://spclient.wg.spotify.com/.+ad_slot - reject-img
+    - ^https?://spclient.wg.spotify.com/.+banners - reject-img
+    - ^https?://spclient.wg.spotify.com/.+canvases - reject-img
+    - ^https?://spclient.wg.spotify.com/.+cards - reject-img
+    - ^https?://spclient.wg.spotify.com/.+crashlytics - reject-img
+    - ^https?://spclient.wg.spotify.com/.+doubleclick.net - reject-img
+    - ^https?://spclient.wg.spotify.com/.+enabled-tracks - reject-img
+    - ^https?://spclient.wg.spotify.com/.+promoted_offer - reject-img
+    - ^https?:\/\/api\d?\.musical\.ly\/api\/ad\/ - reject-img
 script-providers:
   spotify-proto:
     url: https://ghproxy.com/https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
