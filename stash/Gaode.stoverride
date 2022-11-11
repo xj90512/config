@@ -1,0 +1,8 @@
+name: 高德去广告
+desc: 高德去广告
+
+http:
+  mitm:
+    - "m5.amap.com"
+  url-rewrite:
+    - ^https?:\/\/m5.amap.com\/ws\/valueadded\/ - reject
