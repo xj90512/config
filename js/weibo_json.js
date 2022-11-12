@@ -2,10 +2,10 @@
 应用名称：自用微博国际版去广告脚本
 脚本作者：Cuttlefish
 微信账号：公众号墨鱼手记
-更新时间：2022-08-25
-脚本版本：(0.0.3)
-更新地址：https://gitlab.com/ddgksf2013/Cuttlefish/-/raw/master/Script/weibo_json.js
+更新时间：2022-11-10
+脚本版本：(0.0.4)
 通知频道：https://t.me/ddgksf2021
+更新链接：https://codeberg.org/ddgksf2013/Cuttlefish/raw/branch/master/Script/weibo_json.js
 问题反馈：ddgksf2013@163.com
 */
 const mainConfig = {};
@@ -48,6 +48,7 @@ function isAd(data) {
 	}
 	if(data.mblogtypename == '广告' || data.mblogtypename == '热推') {return true};
 	if(data.mblogtypename == '廣告' || data.mblogtypename == '熱推') {return true};
+	if(data.readtimetype  == 'adMblog') {return true};
 	if(data.promotion && data.promotion.type == 'ad') {return true};
 	return false;
 }
