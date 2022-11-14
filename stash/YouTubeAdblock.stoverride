@@ -1,3 +1,4 @@
+#from https://codeberg.org/ddgksf2013/Cuttlefish/raw/branch/master/Rewrite/AdBlock/YoutubeAds.conf
 name: YouTube去广告
 desc: 去除YouTube视频广告(非首页广告)
 
@@ -15,3 +16,14 @@ http:
     - ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - reject
     - ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - reject
     - ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - reject
+  script:
+    - match: ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/(browse|next|player|search|reel\/reel_watch_sequence|guide)
+      name: youtubejs
+      type: response
+      require-body: true
+      timeout: 30
+
+script-providers:
+  youtubejs:
+    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.js
+    interval: 86400
