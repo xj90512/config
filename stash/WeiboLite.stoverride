@@ -3,6 +3,7 @@ desc: 微博轻享版去广告
 # 原作者@ddgksf2013（Cuttlefish）https://github.com/ddgksf2013
 # update:https://codeberg.org/ddgksf2013/Cuttlefish/raw/branch/master/Rewrite/AdBlock/WeiboLite.conf
 # update_js:https://codeberg.org/ddgksf2013/Cuttlefish/raw/branch/master/Script/weibo_json.js
+# update_time:2022.11.14 11:24
 http:
   mitm:
     - "*api.weibo*"
