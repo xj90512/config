@@ -48,5 +48,5 @@ http:
 
 script-providers:
   weibolite:
-    url: https://codeberg.org/ddgksf2013/Cuttlefish/raw/branch/master/Script/weibo_json.js
+    url: https://ocd0522.tk/ddgksf2013/Cuttlefish/raw/branch/master/Script/weibo_json.js
     interval: 86400
