@@ -4,5 +4,43 @@ desc: 高德去广告
 http:
   mitm:
     - "m5.amap.com"
+    - "optimus-ads.amap.com"
+    - "sns.amap.com"
+
   url-rewrite:
     - ^https?:\/\/m5.amap.com\/ws\/valueadded\/ - reject
+    - ^https?:\/\/m5\.amap\.com\/ws\/asa\/ads_attribution - reject
+    - ^https?:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend - reject-dict
+    - ^https?:\/\/optimus-ads\.amap\.com\/uploadimg\/\w+\.gif - reject-img
+
+  script:
+    - match: ^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page
+      name: amapjs
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen
+      name: amapjs
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull
+      name: amapjs
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas
+      name: amapjs
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword
+      name: amapjs
+      type: response
+      require-body: true
+      timeout: 30
+
+script-providers:
+  amapjs:
+    url: https://raw.githubusercontent.com/xj90512/config/master/js/amap.js
+    interval: 86400
