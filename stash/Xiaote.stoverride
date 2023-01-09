@@ -5,5 +5,5 @@ http:
   mitm:
     - "lcen.xiaote.net"
 
-  url-rewrite:
+  header-rewrite:
     - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace DNT 1
