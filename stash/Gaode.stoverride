@@ -42,5 +42,5 @@ http:
 
 script-providers:
   amapjs:
-    url: https://raw.githubusercontent.com/xj90512/config/master/js/amap.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/amap.js
     interval: 86400
