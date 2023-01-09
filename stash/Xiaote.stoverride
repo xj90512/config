@@ -1,0 +1,9 @@
+name: 小特app去广告
+desc: 小特app去广告
+
+http:
+  mitm:
+    - "lcen.xiaote.net"
+
+  url-rewrite:
+    - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace DNT 1
