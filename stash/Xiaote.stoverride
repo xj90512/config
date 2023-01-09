@@ -6,4 +6,4 @@ http:
     - "lcen.xiaote.net"
 
   header-rewrite:
-    - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace DNT 1
+    - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace-regex screenSplashAd NOad
