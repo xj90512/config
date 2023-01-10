@@ -3,38 +3,47 @@ desc: 高德去广告
 
 http:
   mitm:
-    - "m5.amap.com"
-    - "optimus-ads.amap.com"
-    - "sns.amap.com"
+    - "*.amap.com"
 
   url-rewrite:
-    - ^https?:\/\/m5.amap.com\/ws\/valueadded\/ - reject
-    - ^https?:\/\/m5\.amap\.com\/ws\/asa\/ads_attribution - reject
-    - ^https?:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend - reject-dict
-    - ^https?:\/\/optimus-ads\.amap\.com\/uploadimg\/\w+\.gif - reject-img
+    # > 高德地图_Tip请求
+    - ^https?:\/\/.*\.amap\.com\/ws\/boss\/order_web\/\w{8}_information - reject
+    # > 高德地图_通用广告请求
+    - ^https?:\/\/.*\.amap\.com\/ws\/asa\/ads_attribution - reject
+    # > 高德地图_搜索框
+    - ^https?:\/\/.*\.amap\.com\/ws\/shield\/scene\/recommend - reject-dict
+    # > 高德地图_首页左上角
+    - ^https?:\/\/.*\.amap\.com\/uploadimg\/\w+\.gif - reject-img
+    # > 高德地图_左下天气
+    - ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather - reject-dict
 
   script:
-    - match: ^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page
+    # > 高德地图_首页底部处理
+    - match: ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page
       name: amapjs
       type: response
       require-body: true
       timeout: 30
-    - match: ^https?:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen
+    # > 高德地图_开屏广告
+    - match: ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen
       name: amapjs
       type: response
       require-body: true
       timeout: 30
-    - match: ^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull
+    # > 高德地图_首页顶部推广
+    - match: ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull
       name: amapjs
       type: response
       require-body: true
       timeout: 30
-    - match: ^https?:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas
+    # > 高德地图_我的页面
+    - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas
       name: amapjs
       type: response
       require-body: true
       timeout: 30
-    - match: ^https?:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword
+    # > 高德地图_搜索框热词
+    - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword
       name: amapjs
       type: response
       require-body: true
@@ -42,5 +51,5 @@ http:
 
 script-providers:
   amapjs:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/amap.js
+    url: https://github.com/ddgksf2013/Scripts/raw/master/amap.js
     interval: 86400
