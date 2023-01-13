@@ -48,6 +48,18 @@ http:
       type: response
       require-body: true
       timeout: 30
+    # > 高德地图_附近页面
+    - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart
+      name: amapjs
+      type: response
+      require-body: true
+      timeout: 30
+    # > 高德地图_打车页面
+    - match: ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource
+      name: amapjs
+      type: response
+      require-body: true
+      timeout: 30
 
 script-providers:
   amapjs:
