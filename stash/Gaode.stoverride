@@ -16,6 +16,11 @@ http:
     - ^https?:\/\/.*\.amap\.com\/uploadimg\/\w+\.gif - reject-img
     # > 高德地图_左下天气
     - ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather - reject-dict
+    # > https://raw.githubusercontent.com/RS0485/network-rules/main/rewrite/ADBlock.stoverride
+    - '^https?:\/\/m\d\.amap\.com\/ws\/valueadded\/alimama\/splash_screen - reject'
+    - '^https?:\/\/render-oss-cdn\.amap\.com\/render\/studio-dev\/image\/ - reject'
+    - '^https?:\/\/amap\-aos\-info\-nogw\.amap\.com\/ws\/aos\/alimama\/ - reject'
+
 
   script:
     # > 高德地图_首页底部处理
