@@ -1,0 +1,124 @@
+name: App去广告个人用
+desc: App去广告-全局版
+
+http:
+  mitm:
+    - "gab.122.gov.cn"
+    - "ad.12306.cn"
+    - "api-new.app.acfun.cn"
+    - "api.douban.com"
+    - "maicai.api.ddxq.mobi"
+    - "capis*.didapinche.com"
+    - "res.xiaojukeji.com"
+    - "rtbapi.douyucdn.cn"
+    - "app.dewu.com"
+    - "*elemecdn.com"
+    - "*.umetrip.com"
+    - "*.jd.com"
+    - "peisongapi.meituan.com"
+    - "img.meituan.net"
+    - "wmapi.meituan.com"
+    - "s3plus.meituan.net"
+    - "flowplus.meituan.net"
+    - "p*.meituan.net"
+    - "www.meituan.com"
+    - "open.taou.com"
+    - "api.taou.com"
+    - "track.mm.taou.com"
+    - "app.ap.d3yuiw4.com"
+    - "zconfig.alibabausercontent.com"
+    - "g.alicdn.com"
+    - "gw.alicdn.com"
+    - "lcen.xiaote.net"
+    - "ma-adx.ctrip.com"
+    - "m.ctrip.com"
+    - "mbd.baidu.com"
+    - "api.m.mi.com"
+    - "client.app.coc.10086.cn"
+    - "webappcfg.paas.cmbchina.com"
+
+  url-rewrite:
+    # > 12123
+    - ^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery - reject
+    # > acfun
+    - ^https?:\/\/api-new\.app\.acfun\.cn\/rest\/app\/flash\/screen\/ - reject
+    # > douban
+    - ^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash - reject
+    - ^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject
+    # > dingdongmaicai
+    - ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject
+    # > didachuxing
+    - ^https?:\/\/capis(-?\w*)?\.didapinche\.com\/ad\/cx\/startup\? - reject
+    # > didichuxing
+    - https?://res\.xiaojukeji\.com\/resapi\/activity\/mget - reject
+    - https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNotices) - reject
+    # > douyu
+    - ^https?:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo - reject
+    # > dewu
+    - ^https:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement\/ - reject
+    # > elema
+    - ^https?:\/\/elemecdn.com\/.+\/sitemap - reject
+    - ^https?:\/\/fuss10.elemecdn.com\/.+\/w\/640\/h\/\d{3,4} - reject
+    - ^https?:\/\/fuss10.elemecdn.com\/.+\/w\/750\/h\/\d{3,4} - reject
+    - ^https?:\/\/fuss10.elemecdn.com\/.+.mp4 - reject
+    - ^https?:\/\/www1.elecfans.com\/www\/delivery\/ - reject
+    # > hanglvzongheng
+    - ^https?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
+    # > jingdong
+    - ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(start|queryMaterialAdverts) - reject
+    - ^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ - reject
+    # > MeiTuan
+    - ^https?:\/\/peisongapi\.meituan\.com\/client\/getInitiateImage - reject
+    - ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$ - reject
+    - ^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) - reject
+    - ^https?:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg - reject
+    - ^https?:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp - reject
+    # > MeiTuanWaiMai
+    - ^https?:\/\/img\.meituan\.net\/(bizad|brandCpt)\/\w+\.(png|jpg) - reject
+    - ^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo\? - reject
+    - ^https?:\/\/wmapi\.meituan\.com\/api\/v\d\/startpicture - reject
+    - ^https?:\/\/www\.meituan\.com\/api\/v\d\/appstatus\?ad - reject
+    # > MoMo
+    - ^https?:\/\/open\.taou\.com\/maimai\/launch_ad - reject
+    - ^https?:\/\/api\.taou\.com\/sdk\/global\/splash_ad - reject
+    - ^https?:\/\/track\.mm\.taou\.com/v\d\/track - reject
+    # > One
+    - ^http:\/\/app\.api\.d3yuiw4\.com\/api\/app\/ad - reject
+    # > tianmaojingling
+    - ^https?:\/\/zconfig\.alibabausercontent\.com\/zconfig - reject
+    - ^https?:\/\/g\.alicdn\.com\/living\/mesh-std-spec - reject
+    # > XiaoTe
+    - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace screenSplashAd ddgksf2013
+    # > XieCheng
+    - ^https:\/\/ma-adx\.ctrip\.com\/_ma\.gif - reject
+    - ^https:\/\/m\.ctrip\.com\/restapi\/.+json\/tripAds - reject
+    - ^https:\/\/m\.ctrip\.com\/html5\/webresource\/js\/iscroll\.js$ - reject
+    - ^https:\/\/mbd\.baidu\.com\/newspage\/api\/getmobads\?page\=landingshare - reject
+    # > xiaomi
+    - ^https?:\/\/api\.m\.mi\.com\/v1\/app\/start - reject
+    # > zhongguoyidong
+    - ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject
+    - ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList - reject
+    # > zhaoshangyinhang
+    - ^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v1\/func\/getmarketconfig - reject
+
+  script:
+    - match: ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList
+      name: 12306
+      type: response
+      require-body: true
+      timeout: 10
+
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(hotWords|hotSearchTerms)
+      name: jd_json
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  12306:
+    url: https://github.com/ddgksf2013/Scripts/raw/master/12306.js
+    interval:  86400
+  jd_json:
+    url: https://github.com/ddgksf2013/Scripts/raw/master/jd_json.js
+    interval:  86400
