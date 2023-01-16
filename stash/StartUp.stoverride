@@ -29,7 +29,7 @@ http:
     - "zconfig.alibabausercontent.com"
     - "g.alicdn.com"
     - "gw.alicdn.com"
-    - "lcen.xiaote.net"
+    # - "lcen.xiaote.net"
     - "ma-adx.ctrip.com"
     - "m.ctrip.com"
     - "mbd.baidu.com"
@@ -88,7 +88,7 @@ http:
     - ^https?:\/\/zconfig\.alibabausercontent\.com\/zconfig - reject
     - ^https?:\/\/g\.alicdn\.com\/living\/mesh-std-spec - reject
     # > XiaoTe
-    - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace screenSplashAd ddgksf2013
+    # - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace screenSplashAd ddgksf2013
     # > XieCheng
     - ^https:\/\/ma-adx\.ctrip\.com\/_ma\.gif - reject
     - ^https:\/\/m\.ctrip\.com\/restapi\/.+json\/tripAds - reject
