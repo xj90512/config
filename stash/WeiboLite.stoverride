@@ -1,5 +1,3 @@
-# 原作者@ddgksf2013（Cuttlefish）https://github.com/ddgksf2013
-# update:https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Weibo.conf
 # update_js:https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
 # update_time:2022.11.14 11:24
 name: 微博轻享版去广告
@@ -8,39 +6,111 @@ desc: 微博轻享版去广告
 http:
   mitm:
     - "*api.weibo*"
-    - "sdkapp.uve.weibo.com"
+    - "*uve.weibo.com"
+    - "new.vip.weibo.cn"
+
   rewrite:
+    # > 微博国际版_屏蔽hotsearch
     - ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?a=hot_search_users - reject-dict
+    # > 微博国际版_屏蔽热推荐
     - ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\? - reject-dict
-    - ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php  - reject-dict
-    - ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*ads - reject-dict
+    # > 微博_应用内弹窗广告
+    - ^https?:\/\/(preload-click|preload-impression)\.uve\.weibo\.com\/(interface\/wbpullad\/wbpullad_click\.php|wbapplua\/get_wbpullad_log\.lua)  - reject
+    # > 微博_屏蔽sdkconfig
+    - ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
+    # > 微博_Spotlight
+    - ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/hot\/hours_spotlight - reject-dict
   script:
-    - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*user&a=get_searching_info
+    # > 微博国际版_屏蔽开屏广告
+    - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads
       name: weibolite
       type: response
       require-body: true
       timeout: 30
+    # > 微博国际版_屏蔽sdkad
+    - match: ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    # > 微博国际版_屏蔽search_topic
     - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic
       name: weibolite
       type: response
       require-body: true
       timeout: 30
-    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses\/unread_hot_timeline
+    # > 微博国际版_趋势顶部Card去广告
+    - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=trends
       name: weibolite
       type: response
       require-body: true
       timeout: 30
-    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses\/friends_timeline
+    # > 微博国际版_屏蔽用户VIP栏
+    - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    # > 微博国际版_热搜处理
+    - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    # > 微博_自定义tab皮肤
+    - match: ^https://api.weibo.cn/2/!/client/light_skin
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    # > 微博_非会员设置tab皮肤
+    - match: ^https://new.vip.weibo.cn/littleskin/preview
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    # > 微博_去广告以及去除各部分推广模块
+    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(searchall|page\?|messageflow)
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(unread_)?friends(/|_)timeline
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/groups/timeline
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(container_timeline|unread_hot_timeline|extend|video_mixtimeline|unread_topic_timeline)
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/profile/(me|container_timeline)
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/video/(community_tab|remind_info|tiny_stream_video_list)
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/search/(finder|container_timeline|container_discover)
+      name: weibolite
+      type: response
+      require-body: true
+      timeout: 30
+    - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item)
       name: weibolite
       type: response
       require-body: true
       timeout: 30
     - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/cardlist
-      name: weibolite
-      type: response
-      require-body: true
-      timeout: 30
-    - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=trends
       name: weibolite
       type: response
       require-body: true
