@@ -3,7 +3,6 @@ desc: App去广告-全局版
 
 http:
   mitm:
-    - "gab.122.gov.cn"
     - "ad.12306.cn"
     - "api-new.app.acfun.cn"
     - "api.douban.com"
@@ -38,8 +37,6 @@ http:
     - "webappcfg.paas.cmbchina.com"
 
   url-rewrite:
-    # > 12123
-    - ^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery - reject
     # > acfun
     - ^https?:\/\/api-new\.app\.acfun\.cn\/rest\/app\/flash\/screen\/ - reject
     # > douban
