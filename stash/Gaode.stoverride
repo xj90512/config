@@ -70,3 +70,6 @@ script-providers:
   amapjs:
     url: https://github.com/ddgksf2013/Scripts/raw/master/amap.js
     interval: 86400
+
+rules:
+  - DOMAIN,amdc.m.taobao.com,REJECT
