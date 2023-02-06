@@ -1,5 +1,5 @@
 # update_js:https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
-# update_time:2022.11.14 11:24
+# update_time:2023.02.06
 name: 微博轻享版去广告
 desc: 微博轻享版去广告
 
@@ -20,6 +20,11 @@ http:
     - ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
     # > 微博_Spotlight
     - ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/hot\/hours_spotlight - reject-dict
+    # > 微博_去除底部超话栏表层浮icon及tips
+    - ^https?:\/\/api\.weibo\.cn\/\d\/!\/huati\/discovery_home_bottom_getdotinfo - reject-dict
+    # > 微博_屏蔽首页左上角每日的弹窗tips
+    - ^https?:\/\/m?api\.weibo\.c(n|om)\/\d/push/daily - reject-dict
+
   script:
     # > 微博国际版_屏蔽开屏广告
     - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads
@@ -120,3 +125,6 @@ script-providers:
   weibolite:
     url: https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
     interval: 86400
+
+rules:
+  - DOMAIN,sdkapp.uve.weibo.com,DIRECT
