@@ -5,6 +5,9 @@ http:
   mitm:
     - "%APPEND% biz.caiyunapp.com"
 
+  rewrite:
+    - ^https:\/\/ad\.caiyunapp\.com\/ - reject
+
   script:
     - match: ^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather
       name: weather
