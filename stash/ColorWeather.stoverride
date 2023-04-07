@@ -14,8 +14,17 @@ http:
       type: response
       require-body: true
       timeout: 10
+    - match: https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user)
+      name: CaiYun
+      type: response
+      require-body: true
+      timeout: 10
 
 script-providers:
   weather:
     url: https://raw.githubusercontent.com/Maasea/surgeModule/master/Script/Weather/weather.js
+    interval:  86400
+
+  CaiYun:
+    url: https://raw.githubusercontent.com/Tartarus2014/Script/master/CaiYun.js
     interval:  86400
