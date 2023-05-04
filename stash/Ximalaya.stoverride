@@ -69,8 +69,14 @@ http:
       type: response
       require-body: true
       timeout: 30
+    # XiMaLaYa_喜马拉雅_首页顶部去除直播
+    - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories
+      name: xmlyjs
+      type: response
+      require-body: true
+      timeout: 30
 
 script-providers:
   xmlyjs:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/xmly_json.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xmly_json.js
     interval: 86400
