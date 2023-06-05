@@ -19,6 +19,8 @@ http:
     - ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/user\/teenager\/status - reject-dict
     # > 小红书_启动引导
     - ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/guide\/home_guide - reject-dict
+    # > 小红书_视频播放页商品推广
+    - ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/widgets - reject-dict
 
   script:
     # > 小红书_开屏广告
@@ -59,6 +61,24 @@ http:
       timeout: 30
     # > 小红书_猜你想搜
     - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/trending
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_短视频流去水印+强制开启保存功能
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/redtube\?
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_信息流视频去水印+强制开启保存功能
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/videofeed\?
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_信息流图片去水印
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/feed\?
       name: redbook_json
       type: response
       require-body: true
