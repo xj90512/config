@@ -21,3 +21,70 @@ http:
     - ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/guide\/home_guide - reject-dict
     # > 小红书_视频播放页商品推广
     - ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/widgets - reject-dict
+
+  script:
+    # > 小红书_开屏广告
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_首页瀑布流
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/homefeed\?
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_启动处理
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/config\?
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_热搜发现
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/hot_list
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_默认填词
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/hint
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_去除购物
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/homefeed\/categories
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_猜你想搜
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/trending
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_短视频流去水印+强制开启保存功能
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/redtube\?
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_信息流视频去水印+强制开启保存功能
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/videofeed\?
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+    # > 小红书_信息流图片去水印
+    - match: ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/feed\?
+      name: redbook_json
+      type: response
+      require-body: true
+      timeout: 30
+
+script-providers:
+  redbook_json:
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/redbook_json.js
+    interval: 86400
