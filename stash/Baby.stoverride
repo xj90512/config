@@ -4,7 +4,9 @@ desc: 宝宝生活记录
 http:
   mitm:
     - "*.tianmu.mobi"
+    - "api-access.pangolin-sdk-toutiao.com"
 
   rewrite:
     - ^http:\/\/ad\-asm\.tianmu\.mobi\/tianmu\-dsp\-rtc\/ - reject
     - ^http:\/\/ad\.tianmu\.mobi\:9090\/ad\/ - reject
+    - ^https\:\/\/api\-access\.pangolin\-sdk\-toutiao\.com\/api\/ad\/ - reject
