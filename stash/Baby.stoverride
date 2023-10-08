@@ -12,6 +12,6 @@ http:
     - ^https\:\/\/api\-access\.pangolin\-sdk\-toutiao\.com\/api\/ad\/ - reject
     - ^https\:\/\/sdk\.tianmu\.mobi\/config\/init\/v2 - reject
     - ^https\:\/\/sdk\.tianmu\.mobi\/monitor\/au - reject
-
+    - ^https\:\/\/sdk\.tianmu\.mobi\/ad - reject
 rules:
   - DOMAIN,googleads.g.doubleclick-cn.net,REJECT

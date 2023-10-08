@@ -78,5 +78,5 @@ http:
 
 script-providers:
   xmlyjs:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xmly_json.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/ximalaya_json.js
     interval: 86400
