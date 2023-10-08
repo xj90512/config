@@ -6,6 +6,7 @@ desc: 最后更新时间 2023-10-08 13:57:11
 # mitm: 434
 # force-http-engine-hosts: 6
 # total: 964
+# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Stash/AdvertisingLite/AdvertisingLite.stoverride
 
 http:
   rewrite:
