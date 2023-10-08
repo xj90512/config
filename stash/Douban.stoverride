@@ -5,5 +5,5 @@ http:
   mitm:
     - "api.douban.com"
   rewrite:
-    - ^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash - reject-dict
-    - ^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject-dict
+    - ^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash - reject
+    - ^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject
