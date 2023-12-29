@@ -123,7 +123,7 @@ http:
 
 script-providers:
   weibolite:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/weibo_json.js
     interval: 86400
 
 rules:
