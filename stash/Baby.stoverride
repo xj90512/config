@@ -13,5 +13,8 @@ http:
     - ^https\:\/\/sdk\.tianmu\.mobi\/config\/init\/v2 - reject
     - ^https\:\/\/sdk\.tianmu\.mobi\/monitor\/au - reject
     - ^https\:\/\/sdk\.tianmu\.mobi\/ad - reject
+    # > hema
+    - ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.wdk\.render\.querysinglepage url reject-200
+    - ^https?:\/\/acs-m\.freshippo\.com\/gw\/mtop\.wdk\.render\.querysinglepage url reject-200
 rules:
   - DOMAIN,googleads.g.doubleclick-cn.net,REJECT
