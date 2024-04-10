@@ -1,6 +1,9 @@
-name: 龙湖签到任务
-desc: 龙湖天街小程序签到、抽奖
-icon: https://raw.githubusercontent.com/leiyiyan/resource/main/icons/lhtj.png
+name: "龙湖签到任务"
+desc: "龙湖天街小程序签到、抽奖"
+author: "leiyiyan"
+manual: "https://raw.githubusercontent.com/leiyiyan/resource/main/script/lhtj/lhtj.js"
+icon: "https://raw.githubusercontent.com/leiyiyan/resource/main/icons/lhtj.png"
+category: "crontab"
 
 http:
   mitm:
