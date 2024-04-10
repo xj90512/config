@@ -1,0 +1,27 @@
+name: |-
+  龙湖签到任务
+desc: |-
+  龙湖天街小程序签到、抽奖
+icon: |-
+  https://raw.githubusercontent.com/leiyiyan/resource/main/icons/lhtj.png
+
+http:
+  mitm:
+    - "gw2c-hw-open.longfor.com"
+
+  script:
+    - match: ^https?:\/\/gw2c\-hw\-open\.longfor\.com\/lmarketing\-task\-api\-mvc\-prod\/openapi\/task\/v1\/signature\/clock
+      name: "龙湖天街获取Cookie_8"
+      type: request
+      timeout: 60
+
+script-providers:
+  "龙湖天街获取Cookie_8":
+    url: https://raw.githubusercontent.com/leiyiyan/resource/main/script/lhtj/lhtj.js
+    interval: 86400
+
+cron:
+  script:
+    - name: 龙湖天街获取Cookie_8
+      cron: '0 20 * * *'
+      timeout: 15
