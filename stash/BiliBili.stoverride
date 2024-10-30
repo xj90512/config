@@ -1,5 +1,5 @@
-name: BiliBili 重定向 MCDN / PCDN 到正规 CDN
-desc: 加载更流畅的 BiliBili 更值得干杯🍻！
+name: BiliBili屏蔽QUIC
+desc: 最后更新时间：2024-10-30 18:06
 
 http:
   force-http-engine:
@@ -18,8 +18,19 @@ http:
     # upos-sz-mirrorcoso2.bilivideo.com
     # upos-sz-mirrorbs.bilivideo.com
     # upos-sz-mirrorali.bilivideo.com
+
 script:
   shortcuts:
-    bilibili-quic: network == 'udp' and geoip(dst_ip) == 'CN' and dst_port == 3478
+    quic: network == 'udp' and (dst_port == 443 or dst_port == 4483 or dst_port == 9305)
+    BilibiliUdp: network == "udp" and match_provider("Bili")
+    
+rule-providers:
+  Bili:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+    interval: 86400
+
 rules:
-  - SCRIPT,bilibili-quic,REJECT
+  - SCRIPT,quic,REJECT
+  - SCRIPT,BilibiliUdp,REJECT
