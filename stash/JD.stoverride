@@ -1,7 +1,7 @@
 name: 京东去广告
 desc: 过滤京东广告
 icon: https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/Jingdong.png
-tag: 去广告
+category: 去广告
 date: 2024-10-22 00:00
 
 rules:
