@@ -1,8 +1,7 @@
 name: 京东去广告
-desc: 过滤京东广告
+desc: 最后更新时间:2024-10-22 00:00
 icon: https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/Jingdong.png
 category: 去广告
-date: 2024-10-22 00:00
 
 rules:
   - DOMAIN,dns.jd.com,REJECT
