@@ -1,4 +1,4 @@
-#https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Stash/General/General.stoverride
+# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Stash/General/General.stoverride
 name: DNS filter
 desc: 最后更新时间 2024-07-03 16:19:12
 icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Loon.png
