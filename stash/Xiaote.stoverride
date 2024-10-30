@@ -1,9 +1,0 @@
-name: 小特app去广告
-desc: 小特app去广告
-
-http:
-  mitm:
-    - "lcen.xiaote.net"
-
-  header-rewrite:
-    - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace-regex screenSplashAd NOad
