@@ -1,5 +1,7 @@
 name: BiliBili屏蔽QUIC
 desc: 最后更新时间：2024-10-30 18:06
+icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bilibili.png
+category: 基础设置
 
 http:
   force-http-engine:
