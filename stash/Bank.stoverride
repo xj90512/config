@@ -1,7 +1,7 @@
 # https://raw.githubusercontent.com/sooyaaabo/Loon/refs/heads/main/Plugin/Bank.plugin
 name: 银行类去广告
 desc: 最后更新时间：2024-10-22 00:00
-icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bank.png
+icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Other_icon/120px/Bank.png
 category: 去广告
 
 rules:
