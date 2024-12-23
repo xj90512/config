@@ -1,6 +1,6 @@
 # https://github.com/sooyaaabo/Loon/blob/main/Plugin/Jingdong.plugin
 name: 京东去广告
-desc: 最后更新时间:2024-10-22 00:00
+desc: 最后更新时间:2024-11-28 12:00:00
 icon: https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/Jingdong.png
 category: 去广告
 
@@ -13,7 +13,6 @@ http:
   mitm:
     - "api.m.jd.com"
   url-rewrite:
-    - ^http:\/\/\w{32}\.jddebug\.com\/diagnose\? - reject
     - ^http:\/\/\w{32}\.jddebug\.com\/diagnose\? - reject
     - ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?:searchBoxWord|stationPullService|uniformRecommend[06]) - reject-dict
   script:
